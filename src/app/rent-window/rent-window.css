@@ -1,0 +1,31 @@
+.svg-inline--fa {
+    display: var(--fa-display, inline-block);
+    height: 1em;
+    overflow: visible;
+    vertical-align: -.125em;
+    color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+}
+
+.primary {
+    flex: 1;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.outline {
+    flex: 1;
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+}

@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+
+body {
+    overflow: hidden;
+}
+
+.scrollable_page {
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: 100dvh;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+    width: 8px;
+
+    background: #858383;
+    border-radius: 10px;
+}
+
+.nav {
+    height: 60px;
+    width: 100%;
+    background: #F5F5F5;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.full_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    height: 40px;
+    border-radius: 8px;
+    padding: 10px 16px;
+    outline: none;
+}
+
+input::placeholder {
+    color: #707991;
+}
+
+button {
+    cursor: pointer;
+}
+
+.active, .active>div {
+  background: #F5F5F5 !important;
+}

@@ -1,0 +1,31 @@
+<section>
+  <nav class="nav full_flex">
+    <div class="relative mx-4 w-full">
+      <img class="absolute left-4 top-0 bottom-0 my-auto" src="assets/icons/search.svg" alt="">
+      <input class="pl-12! bg-white w-full rounded-full!" type="text" placeholder="Search">
+    </div>
+  </nav>
+  <div>
+    @for (item of [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12]; track item) {
+    <a [routerLink]="['/', item]" routerLinkActive="active">
+      <div class="flex items-center gap-2 p-2 duration-700 hover:bg-[#F5F5F5] cursor-pointer rounded-lg">
+        <img class="w-12 h-12 rounded-full object-cover"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRbcrj53mGyk-u4JwrIb6z1RBAeCpxR78gfQ&s" alt="">
+        <div>
+          <p class="font-semibold leading-5">Home rent</p>
+          <p class="line-clamp-1 leading-4.5 text-sm mt-1">Xodim kerak:
+
+            🏢 Idora: Innovatsiya Texnologiyalar Markazi Mchj
+            📚 Texnologiya: Ai Python, Opencv, Pandas, Tensorflow/Py Torch, Sql, Postgresql
+            🇺🇿 Telegram: @codingboyuz
+            🌐 Hudud: Toshkent sh
+            ✍️ Mas'ul: Ne'matjon
+            🕰 Murojaat vaqti: 9:00 - 18:00
+            🕰 Ish vaqti: 9:00 - 18:00
+            💰 Maosh: 5 mln + ish tajribasi va bilimga qarab qõshiladi</p>
+        </div>
+      </div>
+    </a>
+    }
+  </div>
+</section>
