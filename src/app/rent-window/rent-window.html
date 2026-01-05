@@ -17,7 +17,7 @@
             </div>
         </div>
     </nav>
-    <div class="p-10 space-y-5">
+    <div class="p-10 pb-0 space-y-5">
         @for (item of [1,2,3,4,5]; track item) {
         <div
             class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group w-1/2">
@@ -181,6 +181,14 @@
                 </button> -->
             </div>
         </div>
+        <!-- <img [src]="preview" class="mt-2" /> -->
         }
+
+        <div class="flex bg-white sticky bottom-0 -mx-10 px-5">
+
+            <img src="assets/icons/reaction.svg" alt="">
+            <input (input)="handleInput($event)" (paste)="onPaste($event)" class="w-full h-14!" type="text">
+            <img src="assets/icons/send.svg" alt="">
+        </div>
     </div>
 </aside>

@@ -5,5 +5,9 @@ import { EmptyComponent } from './empty-component/empty-component';
 
 export const routes: Routes = [
     { path: '', component: EmptyComponent },
-    { path: ':id', component: RentWindow },
+    {
+        path: ':id', component: RentWindow, data: {
+            renderMode: 'server',
+        },
+    },
 ];
