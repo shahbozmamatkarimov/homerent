@@ -1,0 +1,1096 @@
+<div class="max-h-dvh overflow-y-auto">
+    <div class="flex flex-col space-y-8 p-5">
+
+        <!-- Step 1 (completed) -->
+        <div class="flex items-start space-x-4">
+            <div>
+                <div class="flex gap-5">
+                    <!-- Check SVG -->
+                    <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
+                        1
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="text-blue-600 mr-3" data-fa-i2svg=""><svg width="20" class="svg-inline--fa fa-house"
+                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="house" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z">
+                                </path>
+                            </svg></i>
+                        Property Information
+                    </h3>
+                </div>
+                <!-- Line -->
+                <div class="flex gap-5">
+                    <div class="w-px mx-3 bg-blue-600"></div>
+                    <div>
+                        <div id="property-info-section" class="mt-5">
+                            <!-- <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                <i class="text-blue-600 mr-3" data-fa-i2svg=""><svg width="20"
+                                        class="svg-inline--fa fa-house" aria-hidden="true" focusable="false"
+                                        data-prefix="fas" data-icon="house" role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                            d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z">
+                                        </path>
+                                    </svg></i>
+                                Property Information
+                            </h3> -->
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Property Title *</label>
+                                    <input type="text" placeholder="e.g., Modern 2BR Apartment"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Property Type *</label>
+                                    <select
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                        <option>Select type</option>
+                                        <option>Apartment</option>
+                                        <option>House</option>
+                                        <option>Condo</option>
+                                        <option>Townhouse</option>
+                                        <option>Studio</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Full Address *</label>
+                                <input type="text" placeholder="Street address, City, State, ZIP"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+
+                            <div class="grid grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Bedrooms *</label>
+                                    <input type="number" placeholder="0" min="0"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Bathrooms *</label>
+                                    <input type="number" placeholder="0" min="0" step="0.5"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Square Feet *</label>
+                                    <input type="number" placeholder="0" min="0"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="modal-footer"
+                            class="py-5 mt-8 flex items-center justify-between">
+                            <div></div>
+                            <!-- <button
+                                class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors">
+                                Save as Draft
+                            </button> -->
+                            <div class="flex items-center space-x-3">
+                                <button
+                                    class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors">
+                                    Cancel
+                                </button>
+                                <button
+                                    class="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2 (current) -->
+        <div class="flex items-start space-x-4">
+            <div>
+                <div class="flex gap-5">
+                    <!-- Check SVG -->
+                    <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
+                        2
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="text-green-600 mr-3" data-fa-i2svg=""><svg width="20"
+                                class="svg-inline--fa fa-dollar-sign" aria-hidden="true" focusable="false"
+                                data-prefix="fas" data-icon="dollar-sign" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 320 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M160 0c17.7 0 32 14.3 32 32V67.7c1.6 .2 3.1 .4 4.7 .7c.4 .1 .7 .1 1.1 .2l48 8.8c17.4 3.2 28.9 19.9 25.7 37.2s-19.9 28.9-37.2 25.7l-47.5-8.7c-31.3-4.6-58.9-1.5-78.3 6.2s-27.2 18.3-29 28.1c-2 10.7-.5 16.7 1.2 20.4c1.8 3.9 5.5 8.3 12.8 13.2c16.3 10.7 41.3 17.7 73.7 26.3l2.9 .8c28.6 7.6 63.6 16.8 89.6 33.8c14.2 9.3 27.6 21.9 35.9 39.5c8.5 17.9 10.3 37.9 6.4 59.2c-6.9 38-33.1 63.4-65.6 76.7c-13.7 5.6-28.6 9.2-44.4 11V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V445.1c-.4-.1-.9-.1-1.3-.2l-.2 0 0 0c-24.4-3.8-64.5-14.3-91.5-26.3c-16.1-7.2-23.4-26.1-16.2-42.2s26.1-23.4 42.2-16.2c20.9 9.3 55.3 18.5 75.2 21.6c31.9 4.7 58.2 2 76-5.3c16.9-6.9 24.6-16.9 26.8-28.9c1.9-10.6 .4-16.7-1.3-20.4c-1.9-4-5.6-8.4-13-13.3c-16.4-10.7-41.5-17.7-74-26.3l-2.8-.7 0 0C119.4 279.3 84.4 270 58.4 253c-14.2-9.3-27.5-22-35.8-39.6c-8.4-17.9-10.1-37.9-6.1-59.2C23.7 116 52.3 91.2 84.8 78.3c13.3-5.3 27.9-8.9 43.2-11V32c0-17.7 14.3-32 32-32z">
+                                </path>
+                            </svg></i>
+                        Rental Details
+                    </h3>
+                </div>
+                <!-- Line -->
+                <div class="flex gap-5">
+                    <div class="w-px mx-3 bg-blue-600"></div>
+                    <div>
+                        <div id="property-info-section" class="mt-5">
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Monthly Rent *</label>
+                                    <div class="relative">
+                                        <span class="absolute left-4 top-2.5 text-gray-500">$</span>
+                                        <input type="number" placeholder="0.00" min="0"
+                                            class="w-full pl-8! pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Security Deposit
+                                        *</label>
+                                    <div class="relative">
+                                        <span class="absolute left-4 top-2.5 text-gray-500">$</span>
+                                        <input type="number" placeholder="0.00" min="0"
+                                            class="w-full pl-8! pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Available From *</label>
+                                    <input type="date"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Lease Duration *</label>
+                                    <select
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                        <option>Select duration</option>
+                                        <option>6 months</option>
+                                        <option>1 year</option>
+                                        <option>2 years</option>
+                                        <option>Month-to-month</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3 (upcoming) -->
+        <div class="flex items-start space-x-4">
+            <div>
+                <div class="flex gap-5">
+                    <!-- Check SVG -->
+                    <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
+                        4
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="text-purple-600 mr-3" data-fa-i2svg=""><svg width="20"
+                                class="svg-inline--fa fa-file-lines" aria-hidden="true" focusable="false"
+                                data-prefix="fas" data-icon="file-lines" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 384 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z">
+                                </path>
+                            </svg></i>
+                        Property Description
+                    </h3>
+                </div>
+                <!-- Line -->
+                <div class="flex gap-5">
+                    <div class="w-px mx-3 bg-blue-600"></div>
+                    <div>
+                        <div id="property-info-section" class="mt-5">
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Description *</label>
+                                <textarea rows="5"
+                                    placeholder="Describe your property, highlight key features, nearby amenities..."
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"></textarea>
+                                <p class="text-sm text-gray-500 mt-1">500 characters maximum</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4 (upcoming) -->
+        <div class="flex items-start space-x-4">
+            <div>
+                <div class="flex gap-5">
+                    <!-- Check SVG -->
+                    <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
+                        4
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="text-teal-600 mr-3" data-fa-i2svg=""><svg width="20"
+                                class="svg-inline--fa fa-circle-check" aria-hidden="true" focusable="false"
+                                data-prefix="fas" data-icon="circle-check" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
+                                </path>
+                            </svg></i>
+                        Amenities &amp; Features
+                    </h3>
+                </div>
+                <!-- Line -->
+                <div class="flex gap-5">
+                    <div class="w-px mx-3 bg-blue-600"></div>
+                    <div>
+                        <div id="property-info-section" class="mt-5">
+                            <div class="grid grid-cols-3 gap-4">
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Air Conditioning</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Heating</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Parking</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Washer/Dryer</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Dishwasher</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Balcony/Patio</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Pet Friendly</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Gym/Fitness</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Pool</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5 (upcoming) -->
+        <div class="flex items-start space-x-4">
+            <div>
+                <div class="flex gap-5">
+                    <!-- Check SVG -->
+                    <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
+                        5
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="text-pink-600 mr-3" data-fa-i2svg=""><svg width="20" class="svg-inline--fa fa-camera"
+                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="camera" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z">
+                                </path>
+                            </svg></i>
+                        Property Photos *
+                    </h3>
+                </div>
+                <!-- Line -->
+                <div class="flex gap-5">
+                    <div class="w-px mx-3 bg-blue-600"></div>
+                    <div>
+                        <div id="property-info-section" class="mt-5">
+                            <div
+                                class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-4 hover:border-blue-500 transition-colors cursor-pointer">
+                                <i class="text-5xl text-gray-400 mb-4" data-fa-i2svg=""><svg width="80"
+                                        class="mx-auto svg-inline--fa fa-cloud-arrow-up" aria-hidden="true"
+                                        focusable="false" data-prefix="fas" data-icon="cloud-arrow-up" role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                            d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z">
+                                        </path>
+                                    </svg></i>
+                                <p class="text-gray-700 font-medium mb-2">Click to upload or drag and drop</p>
+                                <p class="text-sm text-gray-500">PNG, JPG, JPEG (max 5MB each)</p>
+                                <input type="file" multiple="" accept="image/*" class="hidden">
+                            </div>
+
+                            <div class="grid grid-cols-4 gap-4">
+                                <div class="relative rounded-lg overflow-hidden border border-gray-200 h-24">
+                                    <img class="w-full h-full object-cover"
+                                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/fca16074ad-76c3ba33963de3eb82aa.png"
+                                        alt="modern living room interior with sofa">
+                                    <button
+                                        class="absolute top-2 right-2 bg-white rounded-full w-7 h-7 flex items-center justify-center shadow-md hover:bg-red-50">
+                                        <i class="text-red-500 text-sm" data-fa-i2svg=""><svg width="16"
+                                                class="svg-inline--fa fa-xmark" aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="xmark" role="img"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                                                data-fa-i2svg="">
+                                                <path fill="currentColor"
+                                                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z">
+                                                </path>
+                                            </svg></i>
+                                    </button>
+                                    <div
+                                        class="absolute bottom-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">
+                                        Main</div>
+                                </div>
+                                <div class="relative rounded-lg overflow-hidden border border-gray-200 h-24">
+                                    <img class="w-full h-full object-cover"
+                                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/14a7ddde0a-806636fc3b9e27b1ca11.png"
+                                        alt="modern kitchen with appliances">
+                                    <button
+                                        class="absolute top-2 right-2 bg-white rounded-full w-7 h-7 flex items-center justify-center shadow-md hover:bg-red-50">
+                                        <i class="text-red-500 text-sm" data-fa-i2svg=""><svg width="16"
+                                                class="svg-inline--fa fa-xmark" aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="xmark" role="img"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                                                data-fa-i2svg="">
+                                                <path fill="currentColor"
+                                                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z">
+                                                </path>
+                                            </svg></i>
+                                    </button>
+                                </div>
+                                <div class="relative rounded-lg overflow-hidden border border-gray-200 h-24">
+                                    <img class="w-full h-full object-cover"
+                                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/710a54dc06-f25a18d50adf4857ba2e.png"
+                                        alt="spacious bedroom with bed">
+                                    <button
+                                        class="absolute top-2 right-2 bg-white rounded-full w-7 h-7 flex items-center justify-center shadow-md hover:bg-red-50">
+                                        <i class="text-red-500 text-sm" data-fa-i2svg=""><svg width="16"
+                                                class="svg-inline--fa fa-xmark" aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="xmark" role="img"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                                                data-fa-i2svg="">
+                                                <path fill="currentColor"
+                                                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z">
+                                                </path>
+                                            </svg></i>
+                                    </button>
+                                </div>
+                                <div
+                                    class="rounded-lg border-2 border-dashed border-gray-300 h-24 flex items-center justify-center cursor-pointer hover:border-blue-500 transition-colors">
+                                    <i class="text-2xl text-black" data-fa-i2svg=""><svg width="40"
+                                            class="svg-inline--fa fa-plus" aria-hidden="true" focusable="false"
+                                            data-prefix="fas" data-icon="plus" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                            <path fill="currentColor"
+                                                d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z">
+                                            </path>
+                                        </svg></i>
+                                </div>
+                            </div>
+
+                            <p class="flex text-sm text-gray-500 mt-3">
+                                <i class="mr-1" data-fa-i2svg=""><svg width="16" class="svg-inline--fa fa-circle-info"
+                                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-info"
+                                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                        data-fa-i2svg="">
+                                        <path fill="currentColor"
+                                            d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z">
+                                        </path>
+                                    </svg></i>
+                                Add at least 5 photos. First photo will be the cover image.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 6 (upcoming) -->
+        <div class="flex items-start space-x-4">
+            <div>
+                <div class="flex gap-5">
+                    <!-- Check SVG -->
+                    <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
+                        6
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="text-orange-600 mr-3" data-fa-i2svg=""><svg width="20"
+                                class="svg-inline--fa fa-address-card" aria-hidden="true" focusable="false"
+                                data-prefix="fas" data-icon="address-card" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 576 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 256h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm256-32H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16z">
+                                </path>
+                            </svg></i>
+                        Contact Information
+                    </h3>
+                </div>
+                <!-- Line -->
+                <div class="flex gap-5">
+                    <div class="w-px mx-3 bg-blue-600"></div>
+                    <div>
+                        <div id="property-info-section" class="mt-5">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Your Name *</label>
+                                    <input type="text" placeholder="Full name"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                                    <input type="tel" placeholder="(555) 123-4567"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                </div>
+                                <div class="col-span-2">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                    <input type="email" placeholder="your@email.com"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 7 (upcoming) -->
+        <div class="flex items-start space-x-4">
+            <div>
+                <div class="flex gap-5">
+                    <!-- Check SVG -->
+                    <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
+                        7
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="text-indigo-600 mr-3" data-fa-i2svg=""><svg width="20"
+                                class="svg-inline--fa fa-sliders" aria-hidden="true" focusable="false" data-prefix="fas"
+                                data-icon="sliders" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z">
+                                </path>
+                            </svg></i>
+                        Tenant Preferences
+                    </h3>
+                </div>
+                <!-- Line -->
+                <div class="flex gap-5">
+                    <div class="w-px mx-3 bg-blue-600"></div>
+                    <div>
+                        <div id="property-info-section" class="mt-5">
+                            <div class="space-y-4">
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">No smoking</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Pets allowed</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Students welcome</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 8 (upcoming) -->
+        <div class="flex items-start space-x-4">
+            <div>
+                <div class="flex gap-5">
+                    <!-- Check SVG -->
+                    <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
+                        8
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="text-yellow-600 mr-3" data-fa-i2svg=""><svg width="20" class="svg-inline--fa fa-bolt"
+                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bolt" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z">
+                                </path>
+                            </svg></i>
+                        Utilities Included
+                    </h3>
+                </div>
+                <!-- Line -->
+                <div class="flex gap-5">
+                    <div class="w-px mx-3 bg-blue-600"></div>
+                    <div>
+                        <div id="property-info-section" class="mt-5">
+                            <div class="grid grid-cols-2 gap-4">
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Water</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Electricity</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Gas</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Internet/WiFi</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Trash</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                                    <span class="text-gray-700">Cable TV</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <mat-stepper class="min-w-fit" orientation="vertical">
+        <mat-step label="Step 1" state="phone">
+            <ng-template matStepLabel>
+                <h3 class="text-lg font-semibold text-gray-800">
+                    Property Information
+                </h3>
+            </ng-template>
+            <div id="property-info-section" class="mt-5">
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Property Title *</label>
+                        <input type="text" placeholder="e.g., Modern 2BR Apartment"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Property Type *</label>
+                        <select
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option>Select type</option>
+                            <option>Apartment</option>
+                            <option>House</option>
+                            <option>Condo</option>
+                            <option>Townhouse</option>
+                            <option>Studio</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Address *</label>
+                    <input type="text" placeholder="Street address, City, State, ZIP"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+
+                <div class="grid grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Bedrooms *</label>
+                        <input type="number" placeholder="0" min="0"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Bathrooms *</label>
+                        <input type="number" placeholder="0" min="0" step="0.5"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Square Feet *</label>
+                        <input type="number" placeholder="0" min="0"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step label="Step 1" state="chat">
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+            </div>
+        </mat-step><mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+            </div>
+        </mat-step>
+
+        <ng-template matStepperIcon="phone">
+            <i class="text-blue-600" data-fa-i2svg=""><svg width="20" class="svg-inline--fa fa-house" aria-hidden="true"
+                    focusable="false" data-prefix="fas" data-icon="house" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 576 512" data-fa-i2svg="">
+                    <path fill="currentColor"
+                        d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z">
+                    </path>
+                </svg></i>
+        </ng-template>
+        <ng-template matStepperIcon="chat">
+            <mat-icon>forum</mat-icon>
+        </ng-template>
+    </mat-stepper>
+    <div id="modal-content" class="px-8 py-6 sticky left-0">
+
+        <div id="property-info-section" class="mb-8">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                <i class="text-blue-600 mr-3" data-fa-i2svg=""><svg width="20" class="svg-inline--fa fa-house"
+                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="house" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z">
+                        </path>
+                    </svg></i>
+                Property Information
+            </h3>
+
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Property Title *</label>
+                    <input type="text" placeholder="e.g., Modern 2BR Apartment"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Property Type *</label>
+                    <select
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option>Select type</option>
+                        <option>Apartment</option>
+                        <option>House</option>
+                        <option>Condo</option>
+                        <option>Townhouse</option>
+                        <option>Studio</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Full Address *</label>
+                <input type="text" placeholder="Street address, City, State, ZIP"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            </div>
+
+            <div class="grid grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Bedrooms *</label>
+                    <input type="number" placeholder="0" min="0"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Bathrooms *</label>
+                    <input type="number" placeholder="0" min="0" step="0.5"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Square Feet *</label>
+                    <input type="number" placeholder="0" min="0"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+            </div>
+        </div>
+
+        <div id="rental-details-section" class="mb-8">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                <i class="text-green-600 mr-3" data-fa-i2svg=""><svg width="20" class="svg-inline--fa fa-dollar-sign"
+                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="dollar-sign" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M160 0c17.7 0 32 14.3 32 32V67.7c1.6 .2 3.1 .4 4.7 .7c.4 .1 .7 .1 1.1 .2l48 8.8c17.4 3.2 28.9 19.9 25.7 37.2s-19.9 28.9-37.2 25.7l-47.5-8.7c-31.3-4.6-58.9-1.5-78.3 6.2s-27.2 18.3-29 28.1c-2 10.7-.5 16.7 1.2 20.4c1.8 3.9 5.5 8.3 12.8 13.2c16.3 10.7 41.3 17.7 73.7 26.3l2.9 .8c28.6 7.6 63.6 16.8 89.6 33.8c14.2 9.3 27.6 21.9 35.9 39.5c8.5 17.9 10.3 37.9 6.4 59.2c-6.9 38-33.1 63.4-65.6 76.7c-13.7 5.6-28.6 9.2-44.4 11V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V445.1c-.4-.1-.9-.1-1.3-.2l-.2 0 0 0c-24.4-3.8-64.5-14.3-91.5-26.3c-16.1-7.2-23.4-26.1-16.2-42.2s26.1-23.4 42.2-16.2c20.9 9.3 55.3 18.5 75.2 21.6c31.9 4.7 58.2 2 76-5.3c16.9-6.9 24.6-16.9 26.8-28.9c1.9-10.6 .4-16.7-1.3-20.4c-1.9-4-5.6-8.4-13-13.3c-16.4-10.7-41.5-17.7-74-26.3l-2.8-.7 0 0C119.4 279.3 84.4 270 58.4 253c-14.2-9.3-27.5-22-35.8-39.6c-8.4-17.9-10.1-37.9-6.1-59.2C23.7 116 52.3 91.2 84.8 78.3c13.3-5.3 27.9-8.9 43.2-11V32c0-17.7 14.3-32 32-32z">
+                        </path>
+                    </svg></i>
+                Rental Details
+            </h3>
+
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Monthly Rent *</label>
+                    <div class="relative">
+                        <span class="absolute left-4 top-2.5 text-gray-500">$</span>
+                        <input type="number" placeholder="0.00" min="0"
+                            class="w-full pl-8! pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Security Deposit *</label>
+                    <div class="relative">
+                        <span class="absolute left-4 top-2.5 text-gray-500">$</span>
+                        <input type="number" placeholder="0.00" min="0"
+                            class="w-full pl-8! pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Available From *</label>
+                    <input type="date"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Lease Duration *</label>
+                    <select
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option>Select duration</option>
+                        <option>6 months</option>
+                        <option>1 year</option>
+                        <option>2 years</option>
+                        <option>Month-to-month</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="description-section" class="mb-8">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                <i class="text-purple-600 mr-3" data-fa-i2svg=""><svg width="20" class="svg-inline--fa fa-file-lines"
+                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-lines" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z">
+                        </path>
+                    </svg></i>
+                Property Description
+            </h3>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Description *</label>
+                <textarea rows="5" placeholder="Describe your property, highlight key features, nearby amenities..."
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"></textarea>
+                <p class="text-sm text-gray-500 mt-1">500 characters maximum</p>
+            </div>
+        </div>
+
+        <div id="amenities-section" class="mb-8">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                <i class="text-teal-600 mr-3" data-fa-i2svg=""><svg width="20" class="svg-inline--fa fa-circle-check"
+                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-check" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
+                        </path>
+                    </svg></i>
+                Amenities &amp; Features
+            </h3>
+
+            <div class="grid grid-cols-3 gap-4">
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Air Conditioning</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Heating</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Parking</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Washer/Dryer</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Dishwasher</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Balcony/Patio</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Pet Friendly</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Gym/Fitness</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Pool</span>
+                </label>
+            </div>
+        </div>
+
+        <div id="photo-upload-section" class="mb-8">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                <i class="text-pink-600 mr-3" data-fa-i2svg=""><svg width="20" class="svg-inline--fa fa-camera"
+                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="camera" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z">
+                        </path>
+                    </svg></i>
+                Property Photos *
+            </h3>
+
+            <div
+                class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-4 hover:border-blue-500 transition-colors cursor-pointer">
+                <i class="text-5xl text-gray-400 mb-4" data-fa-i2svg=""><svg width="80"
+                        class="mx-auto svg-inline--fa fa-cloud-arrow-up" aria-hidden="true" focusable="false"
+                        data-prefix="fas" data-icon="cloud-arrow-up" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z">
+                        </path>
+                    </svg></i>
+                <p class="text-gray-700 font-medium mb-2">Click to upload or drag and drop</p>
+                <p class="text-sm text-gray-500">PNG, JPG, JPEG (max 5MB each)</p>
+                <input type="file" multiple="" accept="image/*" class="hidden">
+            </div>
+
+            <div class="grid grid-cols-4 gap-4">
+                <div class="relative rounded-lg overflow-hidden border border-gray-200 h-24">
+                    <img class="w-full h-full object-cover"
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/fca16074ad-76c3ba33963de3eb82aa.png"
+                        alt="modern living room interior with sofa">
+                    <button
+                        class="absolute top-2 right-2 bg-white rounded-full w-7 h-7 flex items-center justify-center shadow-md hover:bg-red-50">
+                        <i class="text-red-500 text-sm" data-fa-i2svg=""><svg width="16" class="svg-inline--fa fa-xmark"
+                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z">
+                                </path>
+                            </svg></i>
+                    </button>
+                    <div class="absolute bottom-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">Main</div>
+                </div>
+                <div class="relative rounded-lg overflow-hidden border border-gray-200 h-24">
+                    <img class="w-full h-full object-cover"
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/14a7ddde0a-806636fc3b9e27b1ca11.png"
+                        alt="modern kitchen with appliances">
+                    <button
+                        class="absolute top-2 right-2 bg-white rounded-full w-7 h-7 flex items-center justify-center shadow-md hover:bg-red-50">
+                        <i class="text-red-500 text-sm" data-fa-i2svg=""><svg width="16" class="svg-inline--fa fa-xmark"
+                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z">
+                                </path>
+                            </svg></i>
+                    </button>
+                </div>
+                <div class="relative rounded-lg overflow-hidden border border-gray-200 h-24">
+                    <img class="w-full h-full object-cover"
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/710a54dc06-f25a18d50adf4857ba2e.png"
+                        alt="spacious bedroom with bed">
+                    <button
+                        class="absolute top-2 right-2 bg-white rounded-full w-7 h-7 flex items-center justify-center shadow-md hover:bg-red-50">
+                        <i class="text-red-500 text-sm" data-fa-i2svg=""><svg width="16" class="svg-inline--fa fa-xmark"
+                                aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z">
+                                </path>
+                            </svg></i>
+                    </button>
+                </div>
+                <div
+                    class="rounded-lg border-2 border-dashed border-gray-300 h-24 flex items-center justify-center cursor-pointer hover:border-blue-500 transition-colors">
+                    <i class="text-2xl text-black" data-fa-i2svg=""><svg width="40" class="svg-inline--fa fa-plus"
+                            aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z">
+                            </path>
+                        </svg></i>
+                </div>
+            </div>
+
+            <p class="flex text-sm text-gray-500 mt-3">
+                <i class="mr-1" data-fa-i2svg=""><svg width="16" class="svg-inline--fa fa-circle-info"
+                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-info" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z">
+                        </path>
+                    </svg></i>
+                Add at least 5 photos. First photo will be the cover image.
+            </p>
+        </div>
+
+        <div id="contact-section" class="mb-8">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                <i class="text-orange-600 mr-3" data-fa-i2svg=""><svg width="20" class="svg-inline--fa fa-address-card"
+                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="address-card" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 256h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm256-32H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H496c8.8 0 16 7.2 16 16s-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s7.2-16 16-16z">
+                        </path>
+                    </svg></i>
+                Contact Information
+            </h3>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Your Name *</label>
+                    <input type="text" placeholder="Full name"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                    <input type="tel" placeholder="(555) 123-4567"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                <div class="col-span-2">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                    <input type="email" placeholder="your@email.com"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+            </div>
+        </div>
+
+        <div id="preferences-section" class="mb-8">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                <i class="text-indigo-600 mr-3" data-fa-i2svg=""><svg width="20" class="svg-inline--fa fa-sliders"
+                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sliders" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M0 416c0 17.7 14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384c-17.7 0-32 14.3-32 32zm128 0a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zM320 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm32-80c-32.8 0-61 19.7-73.3 48L32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48zM192 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm73.3-64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64z">
+                        </path>
+                    </svg></i>
+                Tenant Preferences
+            </h3>
+
+            <div class="space-y-4">
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">No smoking</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Pets allowed</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Students welcome</span>
+                </label>
+            </div>
+        </div>
+
+        <div id="utilities-section" class="mb-8">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                <i class="text-yellow-600 mr-3" data-fa-i2svg=""><svg width="20" class="svg-inline--fa fa-bolt"
+                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bolt" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z">
+                        </path>
+                    </svg></i>
+                Utilities Included
+            </h3>
+
+            <div class="grid grid-cols-2 gap-4">
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Water</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Electricity</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Gas</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Internet/WiFi</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Trash</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                    <input type="checkbox"
+                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+                    <span class="text-gray-700">Cable TV</span>
+                </label>
+            </div>
+        </div>
+    </div> -->
+    <div id="modal-footer" class="bg-white border-t border-gray-200 px-8 py-5 flex items-center justify-between">
+        <button
+            class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors">
+            Save as Draft
+        </button>
+        <div class="flex items-center space-x-3">
+            <button
+                class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors">
+                Cancel
+            </button>
+            <button
+                class="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md">
+                Publish Listing
+            </button>
+        </div>
+    </div>
+</div>

@@ -58,3 +58,7 @@ button {
 .active, .active>div {
   background: #F5F5F5 !important;
 }
+
+.mat-step-icon-selected, .mat-step-icon {
+    background: transparent !important;
+}

@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
-
+import { Component, inject } from '@angular/core';
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogTitle,
+  MatDialogContent,
+} from '@angular/material/dialog';
+import { UploadDialog } from '../upload-dialog/upload-dialog';
 @Component({
   selector: 'app-rent-window',
   imports: [],
@@ -7,12 +13,21 @@ import { Component } from '@angular/core';
   styleUrl: './rent-window.css',
 })
 export class RentWindow {
+  dialog = inject(MatDialog);
   preview: string | ArrayBuffer | null = '';
+
+  openDialog() {
+    this.dialog.open(UploadDialog, {
+      data: {
+        preview: this.preview  // rasm preview sini yuboramiz
+      }
+    });
+  }
+
   handleInput = (e: Event) => {
     const value = (e.target as HTMLInputElement).value;
     console.log(value);
     console.log((e.target as HTMLInputElement).files);
-
   }
   onPaste(event: ClipboardEvent) {
     const items = event.clipboardData?.items;
@@ -30,6 +45,7 @@ export class RentWindow {
           const reader = new FileReader();
           reader.onload = () => {
             this.preview = reader.result;
+            this.openDialog();
           };
           reader.readAsDataURL(file);
           // ⬇️ bu yerda upload qilasiz yoki preview chiqarasiz
