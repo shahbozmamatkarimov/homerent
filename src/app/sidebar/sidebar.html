@@ -5,13 +5,12 @@
         </button>
     </nav>
     <div>
-        @for (todo of [1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2,
-        3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,1, 2, 3,]; track todo) {
+        @for (todo of [{icon: '🔑', label: 'Ijara'},{icon: '💰', label: 'Sotuv'},{icon: '📈', label: 'Investitsiya'},];
+        track todo.label) {
 
         <div class="hover:bg-[#e9e8e8] duration-700 cursor-pointer py-2 px-4">
-            <img class="w-12 h-12 min-w-12 rounded-full object-cover"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRbcrj53mGyk-u4JwrIb6z1RBAeCpxR78gfQ&s"
-                alt="">
+            <p class="full_flex mx-auto bg-[#e9e8e8] h-12 w-12 rounded-full">{{todo.icon}}</p>
+            <p class="text-center text-xs">{{todo.label}}</p>
         </div>
         }
     </div>

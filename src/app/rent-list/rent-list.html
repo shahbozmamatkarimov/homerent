@@ -6,13 +6,14 @@
     </div>
   </nav>
   <div>
-    @for (item of [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12]; track item) {
-    <a [routerLink]="['/', item]" routerLinkActive="active">
+    @for (item of [{icon: '🏢', label: 'Kvartiralar'},{icon: '🏡', label: 'Hovli uylar'},{icon: '🏢', label: 'Ofis va Biznes'},{icon: '🌳', label: 'Yer uchastkalari'},{icon: '🏖', label: 'Dacha / Dam olish maskanlari'},]; track item.label; let idx = $index) {
+    <a [routerLink]="['/', idx+1]" routerLinkActive="active">
       <div class="flex items-center gap-2 p-2 duration-700 hover:bg-[#F5F5F5] cursor-pointer rounded-lg">
-        <img class="w-12 h-12 rounded-full object-cover"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRbcrj53mGyk-u4JwrIb6z1RBAeCpxR78gfQ&s" alt="">
+        <p class="full_flex mx-auto text-3xl bg-[#e9e8e8] h-12 w-12 min-w-12 rounded-full">{{item.icon}}</p>
+        <!-- <img class="w-12 h-12 rounded-full object-cover"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRbcrj53mGyk-u4JwrIb6z1RBAeCpxR78gfQ&s" alt=""> -->
         <div>
-          <p class="font-semibold leading-5">Home rent</p>
+          <p class="font-semibold leading-5">{{item.label}}</p>
           <p class="line-clamp-1 leading-4.5 text-sm mt-1">Xodim kerak:
 
             🏢 Idora: Innovatsiya Texnologiyalar Markazi Mchj

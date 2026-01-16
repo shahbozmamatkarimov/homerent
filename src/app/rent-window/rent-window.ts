@@ -6,9 +6,10 @@ import {
   MatDialogContent,
 } from '@angular/material/dialog';
 import { UploadDialog } from '../upload-dialog/upload-dialog';
+import { Map } from "../map/map";
 @Component({
   selector: 'app-rent-window',
-  imports: [],
+  imports: [Map],
   templateUrl: './rent-window.html',
   styleUrl: './rent-window.css',
 })
