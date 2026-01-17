@@ -41,7 +41,6 @@ body {
 }
 
 input {
-    height: 40px;
     border-radius: 8px;
     padding: 10px 16px;
     outline: none;
@@ -55,10 +54,38 @@ button {
     cursor: pointer;
 }
 
-.active, .active>div {
-  background: #F5F5F5 !important;
+.active,
+.active>div {
+    background: #F5F5F5 !important;
 }
 
-.mat-step-icon-selected, .mat-step-icon {
+.mat-step-icon-selected,
+.mat-step-icon {
     background: transparent !important;
+}
+
+.mat-mdc-select {
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px !important;
+    outline: none;
+    border: 1px solid #d1d5dc;
+}
+
+.mat-mdc-select .cdk-overlay-pane {
+    transform: translate(-16px, 16px);
+}
+
+.mat-mdc-select-arrow {
+    background-image: url('assets/icons/arrow.svg') !important;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 16px;
+    height: 16px;
+    border: none;
+}
+
+.mat-mdc-select-arrow svg {
+    display: none;
 }
