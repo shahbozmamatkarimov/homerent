@@ -1,9 +1,9 @@
-import { Component, Inject } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatIconModule } from '@angular/material/icon';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Error } from "../error/error";
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,9 +22,21 @@ import { SubmitBtn } from "./submit-btn.component";
   styleUrl: './upload-dialog.css',
 })
 export class UploadDialog {
-  currentStep = 1;
+  currentStep = 6;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private cdr: ChangeDetectorRef) { }
+
+  amenitiesList: any = [
+    { key: 'ac', label: 'Air Conditioning' },
+    { key: 'heating', label: 'Heating' },
+    { key: 'parking', label: 'Parking' },
+    { key: 'washer', label: 'Washer/Dryer' },
+    { key: 'dishwasher', label: 'Dishwasher' },
+    { key: 'balcony', label: 'Balcony/Patio' },
+    { key: 'pet', label: 'Pet Friendly' },
+    { key: 'gym', label: 'Gym/Fitness' },
+    { key: 'pool', label: 'Pool' },
+  ];
 
   mainForm = new FormGroup({
     property: new FormGroup({
@@ -44,9 +56,11 @@ export class UploadDialog {
     description: new FormGroup({
       description: new FormControl(null, Validators.required),
     }),
-    amenities: new FormGroup({
-      amenities: new FormControl([], Validators.required),
-    }),
+    amenities: new FormGroup(
+      Object.fromEntries(
+        this.amenitiesList.map((option: any) => [option.key, new FormControl(false, Validators.nullValidator)])
+      )
+    ),
     photos: new FormGroup({
       photos: new FormControl([], Validators.required),
     }),
@@ -63,6 +77,16 @@ export class UploadDialog {
     }),
   })
 
+  canShowThisStep(step: number) {
+    // return step == this.currentStep;
+    return true
+  }
+
+
+  onToggle(mainKey: string, key: string, event: any) {
+    this.getForm('amenities')!.get(key)!.setValue(event.target.checked);
+    this.cdr.detectChanges();
+  }
   getForm(type: string): FormGroup | null {
     const group = this.mainForm.get(type);
     if (group instanceof FormGroup) {

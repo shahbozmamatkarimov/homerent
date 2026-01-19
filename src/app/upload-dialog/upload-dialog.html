@@ -21,7 +21,7 @@
                     </h3>
                 </div>
                 <!-- Line -->
-                @if (currentStep == 1) {
+                @if (canShowThisStep(1)) {
                 <form [formGroup]="getForm('property')!" (ngSubmit)="submit('property')" class="flex gap-5">
                     <div class="w-px mx-3 bg-blue-600"></div>
                     <div>
@@ -110,7 +110,7 @@
                     </h3>
                 </div>
                 <!-- Line -->
-                @if (currentStep == 2) {
+                @if (canShowThisStep(2)) {
                 <form [formGroup]="getForm('rental')!" (ngSubmit)="submit('rental')" class="flex gap-5">
                     <div class="w-px mx-3 bg-blue-600"></div>
                     <div>
@@ -186,7 +186,7 @@
                     </h3>
                 </div>
                 <!-- Line -->
-                @if (currentStep == 3) {
+                @if (canShowThisStep(3)) {
                 <form [formGroup]="getForm('description')!" (ngSubmit)="submit('description')" class="flex gap-5">
                     <div class="w-px mx-3 bg-blue-600"></div>
                     <div class="w-full">
@@ -228,57 +228,21 @@
                     </h3>
                 </div>
                 <!-- Line -->
-                @if (currentStep == 4) {
+                @if (canShowThisStep(4)) {
                 <form [formGroup]="getForm('amenities')!" (ngSubmit)="submit('amenities')" class="flex gap-5">
                     <div class="w-px mx-3 bg-blue-600"></div>
                     <div>
                         <div id="property-info-section" class="mt-5">
                             <div class="grid grid-cols-3 gap-4">
+                                @for (item of amenitiesList; track item.label; let idx = $index) {
                                 <label class="flex items-center space-x-3 cursor-pointer">
-                                    <input type="checkbox"
+                                    <input type="checkbox" [value]="item.key" [formControlName]="item.key"
+                                        [checked]="getForm('amenities')!.get(item.key)!.value ? 'checked': false"
+                                        (change)="onToggle('amenities', item.key, $event)"
                                         class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
-                                    <span class="text-gray-700">Air Conditioning</span>
+                                    <span class="text-gray-700">{{item.label}}</span>
                                 </label>
-                                <label class="flex items-center space-x-3 cursor-pointer">
-                                    <input type="checkbox"
-                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
-                                    <span class="text-gray-700">Heating</span>
-                                </label>
-                                <label class="flex items-center space-x-3 cursor-pointer">
-                                    <input type="checkbox"
-                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
-                                    <span class="text-gray-700">Parking</span>
-                                </label>
-                                <label class="flex items-center space-x-3 cursor-pointer">
-                                    <input type="checkbox"
-                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
-                                    <span class="text-gray-700">Washer/Dryer</span>
-                                </label>
-                                <label class="flex items-center space-x-3 cursor-pointer">
-                                    <input type="checkbox"
-                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
-                                    <span class="text-gray-700">Dishwasher</span>
-                                </label>
-                                <label class="flex items-center space-x-3 cursor-pointer">
-                                    <input type="checkbox"
-                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
-                                    <span class="text-gray-700">Balcony/Patio</span>
-                                </label>
-                                <label class="flex items-center space-x-3 cursor-pointer">
-                                    <input type="checkbox"
-                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
-                                    <span class="text-gray-700">Pet Friendly</span>
-                                </label>
-                                <label class="flex items-center space-x-3 cursor-pointer">
-                                    <input type="checkbox"
-                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
-                                    <span class="text-gray-700">Gym/Fitness</span>
-                                </label>
-                                <label class="flex items-center space-x-3 cursor-pointer">
-                                    <input type="checkbox"
-                                        class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
-                                    <span class="text-gray-700">Pool</span>
-                                </label>
+                                }
                             </div>
                         </div>
                         <app-submit-btn [type]="'amenities'" />
@@ -308,7 +272,7 @@
                     </h3>
                 </div>
                 <!-- Line -->
-                @if (currentStep == 5) {
+                @if (canShowThisStep(5)) {
                 <form [formGroup]="getForm('photos')!" (ngSubmit)="submit('photos')" class="flex gap-5">
                     <div class="w-px mx-3 bg-blue-600"></div>
                     <div>
@@ -436,7 +400,7 @@
                     </h3>
                 </div>
                 <!-- Line -->
-                @if (currentStep == 6) {
+                @if (canShowThisStep(6)) {
                 <form [formGroup]="getForm('contact')!" (ngSubmit)="submit('contact')" class="flex gap-5">
                     <div class="w-px mx-3 bg-blue-600"></div>
                     <div>
@@ -487,7 +451,7 @@
                     </h3>
                 </div>
                 <!-- Line -->
-                @if (currentStep == 7) {
+                @if (canShowThisStep(7)) {
                 <form [formGroup]="getForm('tenantPreferences')!" (ngSubmit)="submit('tenantPreferences')"
                     class="flex gap-5">
                     <div class="w-px mx-3 bg-blue-600"></div>
@@ -538,7 +502,7 @@
                     </h3>
                 </div>
                 <!-- Line -->
-                @if (currentStep == 8) {
+                @if (canShowThisStep(8)) {
                 <form [formGroup]="getForm('utilities')!" (ngSubmit)="submit('utilities')" class="flex gap-5">
                     <div class="w-px mx-3 bg-blue-600"></div>
                     <div>

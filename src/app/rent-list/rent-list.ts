@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { axiosInstance } from '../core/axios.config';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-rent-list',
@@ -7,6 +9,30 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './rent-list.html',
   styleUrl: './rent-list.css',
 })
-export class RentList {
+export class RentList implements OnInit {
+  subcategories: any[] = [];
+  loading = false;
 
+  constructor(private apiService: ApiService, private cdr: ChangeDetectorRef) {
+  }
+  
+  async ngOnInit() {
+    await this.getSubcategories();
+  }
+
+  async getSubcategories() {
+    if (this.loading) return;
+    this.loading = true;
+    this.cdr.detectChanges();
+    try {
+      const data = await this.apiService.get<any[]>('/subcategory');
+      this.subcategories = data || [];
+      this.cdr.detectChanges();
+    } catch (error) {
+      console.error('Xatolik yuz berdi:', error);
+    } finally {
+      this.loading = false;
+      this.cdr.detectChanges();
+    }
+  }
 }

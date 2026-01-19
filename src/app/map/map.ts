@@ -12,8 +12,10 @@ declare var ymaps: any;
 export class Map implements AfterViewInit {
 
   async ngAfterViewInit() {
-    await this.loadYandexScript();  // script yuklanishini kutamiz
-    this.initMap();                 // keyin xaritani ochamiz
+    if (typeof window !== 'undefined') {
+      await this.loadYandexScript();  // script yuklanishini kutamiz
+      this.initMap();                 // keyin xaritani ochamiz
+    }
   }
 
   loadYandexScript(): Promise<void> {
