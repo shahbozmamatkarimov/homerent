@@ -10,12 +10,11 @@ import { ApiService } from '../services/api.service';
   styleUrl: './rent-list.css',
 })
 export class RentList implements OnInit {
+  constructor(private apiService: ApiService, private cdr: ChangeDetectorRef) { }
+
   subcategories: any[] = [];
   loading = false;
 
-  constructor(private apiService: ApiService, private cdr: ChangeDetectorRef) {
-  }
-  
   async ngOnInit() {
     await this.getSubcategories();
   }

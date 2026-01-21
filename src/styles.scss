@@ -3,7 +3,7 @@
 @import "tailwindcss";
 
 body {
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .scrollable_page {
@@ -12,6 +12,15 @@ body {
     max-height: 100dvh;
     position: relative;
     scroll-behavior: smooth;
+}
+
+.required {
+    &:after {
+        content: " *";
+        color: red;
+        font-size: 18px;
+        line-height: 1;
+    }
 }
 
 *::-webkit-scrollbar {

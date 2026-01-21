@@ -15,13 +15,23 @@ export class ApiService {
 
     // 2. POST - Yangi ma'lumot yaratish uchun
     async post<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
-        const response = await axiosInstance.post<T>(url, data, config);
+        const response = await axiosInstance.post<T>(url, data, {
+            ...config, headers: {
+                ...config?.headers,
+                ...(data instanceof FormData ? { 'Content-Type': 'multipart/form-data' } : { 'Content-Type': 'application/json' }),
+            }
+        });
         return response.data;
     }
 
     // 3. PUT - Ma'lumotni to'liq yangilash uchun
     async put<T>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
-        const response = await axiosInstance.put<T>(url, data, config);
+        const response = await axiosInstance.put<T>(url, data, {
+            ...config, headers: {
+                ...config?.headers,
+                ...(data instanceof FormData ? { 'Content-Type': 'multipart/form-data' } : { 'Content-Type': 'application/json' }),
+            }
+        });
         return response.data;
     }
 

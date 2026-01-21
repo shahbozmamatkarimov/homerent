@@ -1,7 +1,11 @@
 <header class="flex main">
-  <app-sidebar class="scrollable_page min-w-fit bg-[#F5F5F5]"></app-sidebar>
-  <app-rent-list class="min-w-90 max-w-90 scrollable_page"></app-rent-list>
-  <main class="w-full scrollable_page">
+  <div class="min-w-fit bg-[#F5F5F5] sticky top-0 self-start">
+    <app-sidebar class="scrollable_page"></app-sidebar>
+  </div>
+  <div class="min-w-90 max-w-90 sticky top-0 self-start">
+    <app-rent-list class="scrollable_page"></app-rent-list>
+  </div>
+  <main class="w-full">
     <router-outlet></router-outlet>
   </main>
 </header>

@@ -1,4 +1,4 @@
-<aside>
+<aside class="rentWindow">
     <nav class="nav px-4">
         <div class="flex items-center gap-5">
             <div class="flex items-center gap-2 p-2 w-full">
@@ -17,21 +17,23 @@
             </div>
         </div>
     </nav>
-    <div class="p-10 pb-0 space-y-5">
-        @for (item of [1,2,3,4,5]; track item) {
+    <div class="p-5 space-y-5">
+        @for (item of posts; track item) {
         <div
             class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group w-1/2">
             <div class="relative aspect-video overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 aspect-video"
-                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a26074fe6b-794a637850b6f376d349.png"
-                    alt="modern luxury house exterior with large windows, contemporary architecture, sunset lighting, professional real estate photography">
+                @if(item.uploaded.length) {
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 aspect-video"
+                        [src]="item.uploaded[0]"
+                        [alt]="item.title">
+                }
                 <div
                     class="absolute top-4 left-4 bg-emerald-400 text-white px-4 py-2 rounded-full text-sm font-semibold">
                     For Sale
                 </div>
                 <div
                     class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-full text-lg font-bold">
-                    $850,000
+                    ${{item.monthlyRent}}
                 </div>
                 <button
                     class="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm w-12 h-12 rounded-full flex items-center justify-center hover:bg-white transition-colors">
@@ -46,7 +48,7 @@
             </div>
 
             <div class="p-6">
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">Modern Villa Estate</h3>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">{{item.title}}</h3>
                 <div class="flex items-center text-gray-600 mb-4">
                     <i class="mr-2 text-primary" data-fa-i2svg=""><svg class="svg-inline--fa fa-location-dot"
                             aria-hidden="true" focusable="false" data-prefix="fas" data-icon="location-dot" role="img"
@@ -55,7 +57,7 @@
                                 d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z">
                             </path>
                         </svg></i>
-                    <span class="text-sm">Beverly Hills, Los Angeles, CA</span>
+                    <span class="text-sm">{{item.address}}</span>
                 </div>
 
                 <div id="property-stats-1" class="flex items-center justify-between py-4 border-y border-gray-200 mb-4">
@@ -69,7 +71,7 @@
                             </svg></i>
                         <div>
                             <p class="text-sm text-gray-500">Bedrooms</p>
-                            <p class="text-lg font-semibold text-gray-900">4</p>
+                            <p class="text-lg font-semibold text-gray-900">{{item.bedrooms}}</p>
                         </div>
                     </div>
                     <div class="flex items-center">
@@ -82,7 +84,7 @@
                             </svg></i>
                         <div>
                             <p class="text-sm text-gray-500">Bathrooms</p>
-                            <p class="text-lg font-semibold text-gray-900">3</p>
+                            <p class="text-lg font-semibold text-gray-900">{{item.bathrooms}}</p>
                         </div>
                     </div>
                     <div class="flex items-center">
@@ -96,7 +98,7 @@
                             </svg></i>
                         <div>
                             <p class="text-sm text-gray-500">Sq Ft</p>
-                            <p class="text-lg font-semibold text-gray-900">3,200</p>
+                            <p class="text-lg font-semibold text-gray-900">{{item.sqft}}</p>
                         </div>
                     </div>
                 </div>
@@ -181,16 +183,9 @@
             </button> -->
             </div>
         </div>
-        <!-- <img [src]="preview" class="mt-2" /> -->
         }
-        <app-map />
+        <!-- <app-map /> -->
 
-        <!-- <div class="flex bg-white sticky bottom-0 -mx-10 px-5">
-
-            <img src="assets/icons/reaction.svg" alt="">
-            <input (input)="handleInput($event)" (paste)="onPaste($event)" class="w-full h-14!" type="text">
-            <img src="assets/icons/send.svg" alt="">
-        </div> -->
         <div class="sticky bottom-5 left-full -right-5 w-14 space-y-5">
             <button (click)="openDialog()" class="full_flex p-4 rounded-xl h-14 w-14 bg-amber-300">
                 <i class="text-primary"><svg class="svg-inline--fa fa-location-dot" xmlns="http://www.w3.org/2000/svg"
