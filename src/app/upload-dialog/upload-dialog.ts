@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, effect, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatIconModule } from '@angular/material/icon';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
@@ -10,10 +10,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { SubmitBtn } from "./submit-btn.component";
 import { ApiService } from '../services/api.service';
 import { GlobalService } from '../global/global';
+import { Map } from "../map/map";
 
 @Component({
   selector: 'app-upload-dialog',
-  imports: [MatStepperModule, MatIconModule, ReactiveFormsModule, FormsModule, Error, MatFormFieldModule, MatSelectModule, SubmitBtn],
+  imports: [MatStepperModule, MatIconModule, ReactiveFormsModule, FormsModule, Error, MatFormFieldModule, MatSelectModule, SubmitBtn, Map],
   providers: [
     {
       provide: STEPPER_GLOBAL_OPTIONS,
@@ -26,7 +27,7 @@ import { GlobalService } from '../global/global';
 export class UploadDialog {
   currentStep = 1;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private cdr: ChangeDetectorRef, private apiService: ApiService, public global: GlobalService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private cdr: ChangeDetectorRef, private apiService: ApiService, public global: GlobalService, public dialogRef: MatDialogRef<UploadDialog>) {
     this.buildForm();
     effect(() => {
       const options = this.global.formOptions();
@@ -37,8 +38,11 @@ export class UploadDialog {
     });
   }
 
+  coords: any[] = [];
   imagePreview: string[] = [];
+  isOpenMap: boolean = false;
   mainForm: FormGroup = new FormGroup({});
+  isWideMap: boolean = false;
 
   private buildForm() {
     this.mainForm = new FormGroup({
@@ -77,6 +81,27 @@ export class UploadDialog {
     });
   }
 
+  toggleMap(coords?: any) {
+    this.coords = coords?.length ? coords : this.coords;
+    this.isOpenMap = !this.isOpenMap;
+    if (this.isOpenMap == false) {
+      this.dialogRef.updateSize('50vw', '100vh');
+      this.dialogRef.removePanelClass('full-screen-modal-active');
+    }
+    this.cdr.detectChanges();
+  }
+
+  toggleFullScreen() {
+    this.isWideMap = !this.isWideMap;
+    this.dialogRef.updateSize(this.isWideMap ? '100vw' : '50vw', '100vh');
+    if (this.isWideMap) {
+      this.dialogRef.addPanelClass('full-screen-modal-active');
+    } else {
+      this.dialogRef.removePanelClass('full-screen-modal-active');
+    }
+    this.cdr.detectChanges();
+  }
+
   initOptions(options: any) {
     const amenitiesGroup = new FormGroup({});
     const tenantpreferencesGroup = new FormGroup({});
@@ -106,16 +131,20 @@ export class UploadDialog {
     this.mainForm.setControl('utilities', utilitiesGroup);
   }
 
-  canShowThisStep(step: number) {
-    return step == this.currentStep;
-    return true
+  openMap() {
+    this.toggleMap()
   }
 
+  canShowThisStep(step: number) {
+    return step == this.currentStep;
+    // return true
+  }
 
   onToggle(mainKey: string, key: string, event: any) {
     this.getForm('amenities')!.get(key)!.setValue(event.target.checked);
     this.cdr.detectChanges();
   }
+
   getForm(type: string): FormGroup | null {
     const group = this.mainForm.get(type);
     if (group instanceof FormGroup) {
@@ -177,9 +206,9 @@ export class UploadDialog {
       const utilities = this.getIdsFromObj(this.mainForm.value.utilities);
       const tenantpreferences = this.getIdsFromObj(this.mainForm.value.tenantpreferences);
       console.log(amenities, utilities, tenantpreferences);
-      
+
       const subcategory_id = this.global.getParams()?.get('id');
-      let data: any = { amenities, utilities, tenantpreferences, ...this.mainForm.value.property, ...this.mainForm.value.rental, ...this.mainForm.value.description, ...this.mainForm.value.contact, ...this.mainForm.value.uploaded, subcategory_id }
+      let data: any = { amenities, utilities, tenantpreferences, ...this.mainForm.value.property, ...this.mainForm.value.rental, ...this.mainForm.value.description, ...this.mainForm.value.contact, ...this.mainForm.value.uploaded, subcategory_id, coords: this.coords }
 
       const formData: any = new FormData();
       Object.keys(data).map(item => {

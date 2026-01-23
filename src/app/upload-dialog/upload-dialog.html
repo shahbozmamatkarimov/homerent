@@ -1,4 +1,7 @@
-<div class="max-h-dvh overflow-y-auto">
+<div class="max-h-dvh overflow-y-auto min-w-140">
+    @if (isOpenMap) {
+    <app-map [toggleFullScreen]="toggleFullScreen.bind(this)" [closeMap]="toggleMap.bind(this)" [className]="'h-screen'" />
+    } @else {
     <div class="flex flex-col space-y-8 p-5">
 
         <!-- Step 1 (completed) -->
@@ -29,14 +32,16 @@
                         <div id="property-info-section" class="mt-5">
                             <div class="grid grid-cols-2 gap-4 mb-4">
                                 <div>
-                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Property Title</label>
+                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Property
+                                        Title</label>
                                     <input formControlName="title" type="text" placeholder="e.g., Modern 2BR Apartment"
                                         required
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                     <app-error [control]="getForm('property')!.get('title')"></app-error>
                                 </div>
                                 <div>
-                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Property Type</label>
+                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Property
+                                        Type</label>
                                     <mat-select formControlName="type">
                                         <mat-option value="apartment">Apartment</mat-option>
                                         <mat-option value="house">House</mat-option>
@@ -47,7 +52,8 @@
                             </div>
 
                             <div class="mb-4">
-                                <label class="required block text-sm font-medium text-gray-700 mb-2">Full Address</label>
+                                <label class="required block text-sm font-medium text-gray-700 mb-2">Full
+                                    Address</label>
                                 <input formControlName="address" type="text" required
                                     placeholder="Street address, City, State, ZIP"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
@@ -56,19 +62,22 @@
 
                             <div class="grid grid-cols-3 gap-4">
                                 <div>
-                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Bedrooms</label>
+                                    <label
+                                        class="required block text-sm font-medium text-gray-700 mb-2">Bedrooms</label>
                                     <input formControlName="bedrooms" type="number" placeholder="0" min="0" required
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                     <app-error [control]="getForm('property')!.get('bedrooms')"></app-error>
                                 </div>
                                 <div>
-                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Bathrooms</label>
+                                    <label
+                                        class="required block text-sm font-medium text-gray-700 mb-2">Bathrooms</label>
                                     <input formControlName="bathrooms" type="number" placeholder="0" min="0" step="0.5"
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                     <app-error [control]="getForm('property')!.get('bathrooms')"></app-error>
                                 </div>
                                 <div>
-                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Square Feet</label>
+                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Square
+                                        Feet</label>
                                     <input formControlName="sqft" type="number" placeholder="0" min="0"
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                     <app-error [control]="getForm('property')!.get('sqft')"></app-error>
@@ -82,9 +91,61 @@
             </div>
         </div>
 
+        <!-- Step 1 (completed) -->
+        <div class="flex items-start space-x-4">
+            <!-- {{global.formOptions()}} -->
+            <div class="w-full">
+                <div class="flex gap-5">
+                    <!-- Check SVG -->
+                    <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
+                        1
+                    </div>
+                    <h3 class="required text-lg font-semibold text-gray-800 mb-4 flex gap-1 items-center">
+                        <i class="text-blue-600 mr-2" data-fa-i2svg=""><svg width="20" height="20" viewBox="0 0 384 512"
+                                fill="currentColor">
+                                <path
+                                    d="M168 0C75.1 0 0 75.1 0 168c0 87.4 128 296 168 296s168-208.6 168-296C336 75.1 260.9 0 168 0zm0 256c-48.6 0-88-39.4-88-88s39.4-88 88-88 88 39.4 88 88-39.4 88-88 88z" />
+                            </svg></i>
+                        Full Address
+                    </h3>
+                </div>
+                <!-- Line -->
+                @if (canShowThisStep(1) && getForm('property')) {
+                <form [formGroup]="getForm('property')!" (ngSubmit)="submit('property')" class="flex gap-5">
+                    <div class="w-px mx-3 bg-blue-600"></div>
+                    <div class="w-full">
+                        <div id="property-info-section" class="mt-5 space-y-5">
+                            <div (click)="openMap()">
+                                <label class="required block text-sm font-medium text-gray-700 mb-2">Select your
+                                    locations</label>
+                                <button type="submit"
+                                    class="full_flex w-full gap-2 px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" />
+                                    </svg> Open Map
+                                </button>
+                            </div>
+                            <div>
+                                <label class="required block text-sm font-medium text-gray-700 mb-2">Additional
+                                    Address</label>
+                                <input formControlName="address" type="text" required
+                                    placeholder="Street address, City, State, ZIP"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <app-error [control]="getForm('property')!.get('address')"></app-error>
+                            </div>
+
+                        </div>
+                        <app-submit-btn [type]="'property'" />
+                    </div>
+                </form>
+                }
+            </div>
+        </div>
+
         <!-- Step 2 (current) -->
         <div class="flex items-start space-x-4">
-            <div>
+            <div class="w-full">
                 <div class="flex gap-5">
                     <!-- Check SVG -->
                     <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
@@ -104,13 +165,14 @@
                 </div>
                 <!-- Line -->
                 @if (canShowThisStep(2) && getForm('rental')) {
-                <form [formGroup]="getForm('rental')!" (ngSubmit)="submit('rental')" class="flex gap-5">
+                <form [formGroup]="getForm('rental')!" (ngSubmit)="submit('rental')" class="flex gap-5 w-full">
                     <div class="w-px mx-3 bg-blue-600"></div>
-                    <div>
+                    <div class="w-full">
                         <div id="property-info-section" class="mt-5">
                             <div class="grid grid-cols-2 gap-4 mb-4">
                                 <div>
-                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Monthly Rent</label>
+                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Monthly
+                                        Rent</label>
                                     <div class="relative">
                                         <span class="absolute left-4 top-2.5 text-gray-500">$</span>
                                         <input formControlName="monthlyRent" type="number" placeholder="0.00" min="0"
@@ -119,7 +181,8 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Security Deposit</label>
+                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Security
+                                        Deposit</label>
                                     <div class="relative">
                                         <span class="absolute left-4 top-2.5 text-gray-500">$</span>
                                         <input formControlName="securityDeposit" type="number" placeholder="0.00"
@@ -132,13 +195,15 @@
 
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Available From</label>
+                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Available
+                                        From</label>
                                     <input formControlName="availableFrom" type="date"
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                     <app-error [control]="getForm('rental')!.get('availableFrom')"></app-error>
                                 </div>
                                 <div>
-                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Lease Duration</label>
+                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Lease
+                                        Duration</label>
                                     <select formControlName="leaseDuration"
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                         <option>Select duration</option>
@@ -202,7 +267,7 @@
 
         <!-- Step 4 (upcoming) -->
         <div class="flex items-start space-x-4">
-            <div>
+            <div class="w-full">
                 <div class="flex gap-5">
                     <!-- Check SVG -->
                     <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
@@ -224,23 +289,26 @@
                 @if (canShowThisStep(4) && getForm('contact')) {
                 <form [formGroup]="getForm('contact')!" (ngSubmit)="submit('contact')" class="flex gap-5">
                     <div class="w-px mx-3 bg-blue-600"></div>
-                    <div>
+                    <div class="w-full">
                         <div id="property-info-section" class="mt-5">
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Your
+                                        Name</label>
                                     <input formControlName="contactName" type="text" placeholder="Full name"
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                     <app-error [control]="getForm('contact')!.get('contactName')"></app-error>
                                 </div>
                                 <div>
-                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Phone
+                                        Number</label>
                                     <input formControlName="contactPhone" type="tel" placeholder="(555) 123-4567"
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                     <app-error [control]="getForm('contact')!.get('contactPhone')"></app-error>
                                 </div>
                                 <div class="col-span-2">
-                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                    <label class="required block text-sm font-medium text-gray-700 mb-2">Email
+                                        Address</label>
                                     <input formControlName="contactEmail" type="email" placeholder="your@email.com"
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                     <app-error [control]="getForm('contact')!.get('contactEmail')"></app-error>
@@ -256,7 +324,7 @@
 
         <!-- Step 5 (upcoming) -->
         <div class="flex items-start space-x-4">
-            <div>
+            <div class="w-full">
                 <div class="flex gap-5">
                     <!-- Check SVG -->
                     <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
@@ -277,7 +345,7 @@
                 @if (canShowThisStep(5) && getForm('uploaded')) {
                 <form [formGroup]="getForm('uploaded')!" (ngSubmit)="submit('uploaded')" class="flex gap-5">
                     <div class="w-px mx-3 bg-blue-600"></div>
-                    <div>
+                    <div class="w-full">
                         <div id="property-info-section" class="mt-5">
                             <label for="imageUpload" (dragover)="onDragOver($event)" (drop)="onDropSuccess($event)"
                                 class="block border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-4 hover:border-blue-500 transition-colors cursor-pointer">
@@ -353,7 +421,7 @@
 
         <!-- Step 4 (upcoming) -->
         <div class="flex items-start space-x-4">
-            <div>
+            <div class="w-full">
                 <div class="flex gap-5">
                     <!-- Check SVG -->
                     <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
@@ -375,7 +443,7 @@
                 @if (canShowThisStep(6) && getForm('amenities')) {
                 <form [formGroup]="getForm('amenities')!" (ngSubmit)="submit('amenities')" class="flex gap-5">
                     <div class="w-px mx-3 bg-blue-600"></div>
-                    <div>
+                    <div class="w-full">
                         <div id="property-info-section" class="mt-5">
                             <div class="grid grid-cols-2 gap-4">
                                 @for (item of global.formOptions()?.amenities; track item.id; let idx = $index) {
@@ -396,7 +464,7 @@
 
         <!-- Step 7 (upcoming) -->
         <div class="flex items-start space-x-4">
-            <div>
+            <div class="w-full">
                 <div class="flex gap-5">
                     <!-- Check SVG -->
                     <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
@@ -419,7 +487,7 @@
                 <form [formGroup]="getForm('tenantpreferences')!" (ngSubmit)="submit('tenantpreferences')"
                     class="flex gap-5">
                     <div class="w-px mx-3 bg-blue-600"></div>
-                    <div>
+                    <div class="w-full">
                         <div id="property-info-section" class="mt-5">
                             <div class="space-y-4">
                                 @for (item of global.formOptions()?.tenantpreferences; track item.id; let idx = $index)
@@ -441,7 +509,7 @@
 
         <!-- Step 8 (upcoming) -->
         <div class="flex items-start space-x-4">
-            <div>
+            <div class="w-full">
                 <div class="flex gap-5">
                     <!-- Check SVG -->
                     <div class="bg-blue-600 w-7 h-7 pt-0.5 flex items-center justify-center rounded-full text-white">
@@ -462,7 +530,7 @@
                 @if (canShowThisStep(8) && getForm('utilities')) {
                 <form [formGroup]="getForm('utilities')!" (ngSubmit)="submit('utilities')" class="flex gap-5">
                     <div class="w-px mx-3 bg-blue-600"></div>
-                    <div>
+                    <div class="w-full">
                         <div id="property-info-section" class="mt-5">
                             <div class="grid grid-cols-2 gap-4">
                                 @for (item of global.formOptions()?.utilities; track item.id; let idx = $index)
@@ -495,8 +563,9 @@
             </button>
             <button
                 class="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors shadow-md">
-                Publish Listing
+                Next
             </button>
         </div>
     </div>
+    }
 </div>

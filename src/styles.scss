@@ -98,3 +98,24 @@ button {
 .mat-mdc-select-arrow svg {
     display: none;
 }
+
+.ymaps-2-1-79-gototech, .ymaps-2-1-79-gotoymaps, .ymaps-2-1-79-copyright {
+    display: none !important;
+}
+
+/* Bu klass updateSize bilan birga ishlaydi */
+.full-screen-modal-active {
+  max-width: 100vw !important;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.full-screen-modal-active .mat-mdc-dialog-container {
+  padding: 0 !important; /* Bo'shliqlarni yo'qotadi */
+}
+
+.full-screen-modal-active .mat-mdc-dialog-surface {
+  max-width: none !important;
+  max-height: none !important;
+  border-radius: 0 !important; /* Burchaklarni to'g'rilaydi */
+}

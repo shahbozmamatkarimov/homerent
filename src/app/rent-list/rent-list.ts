@@ -2,10 +2,11 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { axiosInstance } from '../core/axios.config';
 import { ApiService } from '../services/api.service';
+import { Loading } from "../loading/loading";
 
 @Component({
   selector: 'app-rent-list',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, Loading],
   templateUrl: './rent-list.html',
   styleUrl: './rent-list.css',
 })

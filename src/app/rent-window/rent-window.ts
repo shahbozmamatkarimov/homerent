@@ -1,18 +1,16 @@
-import { ChangeDetectorRef, Component, HostListener, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, inject, PLATFORM_ID } from '@angular/core';
 import {
   MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogTitle,
-  MatDialogContent,
 } from '@angular/material/dialog';
 import { UploadDialog } from '../upload-dialog/upload-dialog';
-import { Map } from "../map/map";
 import { ApiService } from '../services/api.service';
 import { GlobalService } from '../global/global';
 import { ActivatedRoute } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
+import { Loading } from "../loading/loading";
 @Component({
   selector: 'app-rent-window',
-  imports: [Map],
+  imports: [Loading],
   templateUrl: './rent-window.html',
   styleUrl: './rent-window.css',
 })
@@ -25,7 +23,7 @@ export class RentWindow {
   hasMore = true; // Yana ma'lumot bormi?
   dialog = inject(MatDialog);
   subcategory_id: string | null = null;
-  constructor(private apiService: ApiService, private cdr: ChangeDetectorRef, public global: GlobalService) { }
+  constructor(private apiService: ApiService, private cdr: ChangeDetectorRef, public global: GlobalService, @Inject(PLATFORM_ID) private platformId: Object) { }
   async ngOnInit() {
     this.route.paramMap.subscribe((params: any) => {
       const newId = this.global.getParams().get('id');
@@ -35,14 +33,21 @@ export class RentWindow {
       }
     });
 
-
-    window?.addEventListener('scroll', () => {
-      const element: any = document.querySelector('body');
-      if (element.scrollHeight - window?.scrollY <= element.clientHeight + 100) {
-        this.getPosts();
-      }
-    })
+    if (isPlatformBrowser(this.platformId)) {
+      window?.addEventListener('scroll', () => {
+        const element: any = document.querySelector('body');
+        if (element.scrollHeight - window?.scrollY <= element.clientHeight + 100) {
+          this.getPosts();
+        }
+      })
+    }
   }
+
+  getAmenityById(option: string, type: string, id: number) {
+    const optionData = this.global.formOptions()[option]?.find((a: any) => a.id == id);
+    return optionData ? optionData[type] : null;
+  }
+
 
   openDialog() {
     this.dialog.open(UploadDialog, {
